@@ -56,3 +56,6 @@ expo start
 - axios
 - expo-barcode-scanner
 - expo-camera
+
+P.S.: 
+If you use Insomnia for test your api request, import the files Insomnia_ and use the Template Data.
