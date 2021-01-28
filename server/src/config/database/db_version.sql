@@ -1,0 +1,23 @@
+
+CREATE TABLE IF NOT EXISTS books (
+    bookId INT NOT NULL PRIMARY KEY AUTO_INCREMENT,
+    title VARCHAR(45) NOT NULL,
+    author VARCHAR(45) NOT NULL,
+    pageCount INT NOT NULL,
+    isbn VARCHAR(45) NOT NULL,
+    description VARCHAR(255),
+    publishedDate VARCHAR(45),
+    publisher VARCHAR(45),
+    date DATE NOT NULL DEFAULT CURRENT_TIMESTAMP,
+    userId INT NOT NULL,
+    FOREIGN KEY (userId) REFERENCES users (userId)
+);
+
+
+CREATE TABLE IF NOT EXISTS users (
+    userId INT NOT NULL PRIMARY KEY AUTO_INCREMENT,
+    email VARCHAR(100) NOT NULL,
+    password VARCHAR(100) NOT NULL
+);
+
+

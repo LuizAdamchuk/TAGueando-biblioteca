@@ -1,0 +1,35 @@
+{
+  "expo": {
+    "name": "app-tag",
+    "slug": "app-tag",
+    "version": "1.0.0",
+    "orientation": "portrait",
+    "icon": "./assets/icon.png",
+    "splash": {
+      "image": "./assets/splash.png",
+      "resizeMode": "contain",
+      "backgroundColor": "#ffffff"
+    },
+    "updates": {
+      "fallbackToCacheTimeout": 0
+    },
+    "assetBundlePatterns": [
+      "**/*"
+    ],
+    "web": {
+      "favicon": "./assets/favicon.png"
+    },
+      "android": {
+      "useNextNotificationsApi": true,
+      "package": "com.tag.dmchk",
+      "versionCode": 1,
+      "permissions": [
+        "CAMERA"
+      ],
+      "adaptiveIcon": {
+        "foregroundImage": "./assets/icon.png",
+        "backgroundImage": "./assets/adaptive-background.png"
+      }
+    }
+  }
+}
