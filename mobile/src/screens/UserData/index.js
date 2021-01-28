@@ -1,22 +1,22 @@
-import React, { useCallback, useState } from 'react';
-import { useFocusEffect } from '@react-navigation/native';
-import { View, Text } from 'react-native';
+import React, { useCallback, useState } from "react";
+import { useFocusEffect } from "@react-navigation/native";
+import { View, Text } from "react-native";
 
-import { useAuth } from '../../hooks/authContext';
+import { useAuth } from "../../hooks/authContext";
 
-import { styles } from './style';
-import { api } from '../../services/api';
-import { TextInput } from 'react-native-paper';
-import { ScrollView } from 'react-native-gesture-handler';
-import { SafeAreaView } from 'react-native-safe-area-context';
+import { styles } from "./style";
+import { api } from "../../services/api";
+import { TextInput } from "react-native-paper";
+import { ScrollView } from "react-native-gesture-handler";
+import { SafeAreaView } from "react-native-safe-area-context";
 
-import { Button } from '../../components/Button';
+import { Button } from "../../components/Button";
 
 export const UserData = () => {
   const { data: userData, signOut } = useAuth();
 
-  const [emailInput, setEmailInput] = useState('');
-  const [booksData, setBooksData] = useState('');
+  const [emailInput, setEmailInput] = useState("");
+  const [booksData, setBooksData] = useState("");
 
   const handleSignOut = useCallback(() => {
     signOut();
@@ -24,12 +24,13 @@ export const UserData = () => {
 
   useFocusEffect(
     useCallback(() => {
-      console.log(userData.id);
       api
         .get(`/users/books/${userData.id}`)
-
-        .then(response => setBooksData(response.data.books));
-    }, []),
+        .then((response) => {
+          setBooksData(response.data.books);
+        })
+        .catch((error) => error);
+    }, [])
   );
   return (
     <ScrollView>
